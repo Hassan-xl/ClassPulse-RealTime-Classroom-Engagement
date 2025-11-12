@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ClassPulse — Teacher</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>ClassPulse — Teacher Dashboard</h1>
+      <p class="sub">Local LAN session — no internet required</p>
+    </header>
+
+    <!-- ====== Top Section: QR + Stats ====== -->
+    <section class="top-row">
+      <div class="card">
+        <h3>Join URL (scan QR)</h3>
+        <div id="qr-placeholder" class="qr"></div>
+        <p id="join-url" class="muted"></p>
+      </div>
+
+      <div class="card">
+        <h3>Students connected</h3>
+        <div id="student-count" class="big">0</div>
+        <h4>Engagement</h4>
+        <div class="meter">
+          <div id="engagement-bar" class="meter-fill" style="width:50%"></div>
+        </div>
+        <div id="engagement-value" class="muted">Score: 0</div>
+      </div>
+    </section>
+
+    <!-- ====== Middle Section: Reactions + Activity + Live Feed ====== -->
+    <section class="middle-row">
+      <!-- Floating Reactions -->
+      <div class="card" style="flex:1.3">
+        <h3>Floating Reactions</h3>
+        <div id="floating-area" class="floating-area"></div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="card" style="flex:0.9">
+        <h3 class="mb-2">Recent Activity</h3>
+        <div class="flex gap-4">
+          <div class="col">
+            <h4 class="small-title">Messages</h4>
+            <ul id="events-messages" class="events small scroll"></ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🟢 Live Presence Feed -->
+      <div class="card" style="width:280px">
+        <h3>Live Presence</h3>
+        <ul id="live-feed" class="events small scroll"></ul>
+      </div>
+    </section>
+
+    <!-- ====== Footer ====== -->
+    <footer class="muted small">
+      Run <code>python app.py</code> and open this machine's IP on student devices.
+    </footer>
+  </div>
+
+  <!-- ====== Scripts ====== -->
+  <script src="https://cdn.jsdelivr.net/npm/socket.io-client@4.6.1/dist/socket.io.min.js"></script>
+  <script src="/static/client.js"></script>
+  <script src="/static/teacher.js"></script>
+</body>
+</html>
